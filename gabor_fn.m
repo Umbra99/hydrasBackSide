@@ -36,6 +36,10 @@ for theta = thetas
     image = imresize(gb,[s,s]);
     image = (image * max_) + min_;
     image = padarray(image,[(maxi-s)/2, (maxi-s)/2]);
+    
+    image=image-mean(image(:));
+    image=image/std(image(:));
+    
     f(:,:,counter) = image;
     counter = counter+1;
     
